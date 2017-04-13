@@ -179,8 +179,10 @@
      ];
 }
 
--(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSArray *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
+-(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSString *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
 {
+    
+  
     [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
 
 //    [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
@@ -189,10 +191,23 @@
     [self.requestManager GET:@"messages/23/" parameters:nil progress:nil
                       success:^(NSURLSessionTask *task, id responseObject)
      {
+         
          NSLog(@"RESPONSE OBJECT %@",responseObject);
+         
+         NSMutableArray* post = [responseObject mutableCopy];
+         NSDictionary *dics = [post firstObject];
+         
+         NSLog(@"dics %@",dics);
+         NSString *name = [dics valueForKey:@"text"];
+         
+         
+        //         NSMutableArray *message = [objects mutableCopy];
+     
+        // NSLog(@"mesajul este  %@",message);
+
          if(success)
          {
-             success([responseObject objectForKey:@"text"]);
+             success(name);
          }
          
      } failure:^(NSURLSessionTask *operation, NSError *error) {
