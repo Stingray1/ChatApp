@@ -162,7 +162,7 @@
                                   };
     [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
     [self.requestManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
-//    [self.requestManager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"] forHTTPHeaderField:@"Authorization"];
+    [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
    
     [self.requestManager POST:[NSString stringWithFormat:@"messages/%@/send/",userId] parameters:parameters progress:nil
      success:^(NSURLSessionTask *task, id responseObject)
@@ -179,20 +179,20 @@
      ];
 }
 
--(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSString *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
+-(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSArray *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
 {
-//    [self.requestManager.requestSerializer setValue:[[NSUserDefaults standardUserDefaults] stringForKey:@"token"] forHTTPHeaderField:@"Authorization"];
+    [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
 
-    [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
-    [self.requestManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
+//    [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
+//    [self.requestManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
     
-    [self.requestManager GET:[NSString stringWithFormat:@"messages/%@/",userId] parameters:nil progress:nil
+    [self.requestManager GET:@"messages/23/" parameters:nil progress:nil
                       success:^(NSURLSessionTask *task, id responseObject)
      {
          NSLog(@"RESPONSE OBJECT %@",responseObject);
          if(success)
          {
-             success(@"pRIVET");
+             success([responseObject objectForKey:@"text"]);
          }
          
      } failure:^(NSURLSessionTask *operation, NSError *error) {

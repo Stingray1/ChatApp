@@ -24,7 +24,7 @@ username:(NSString *)username
 
 
 
--(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSString *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure;
+-(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSArray *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure;
 
 
 -(void)sendMessage:(NSString *)message andId:(NSString *)userId;

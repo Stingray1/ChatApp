@@ -55,7 +55,7 @@
     
     // [JSQSystemSoundPlayer jsq_playMessageSentSound];
     
-    [[RequestManager sharedManager]sendMessage:text andId:@"24"];
+    [[RequestManager sharedManager]sendMessage:text andId:@"23"];
     
     JSQMessage *message = [[JSQMessage alloc] initWithSenderId:senderId
                                              senderDisplayName:senderDisplayName
@@ -72,10 +72,10 @@
      [self scrollToBottomAnimated:YES];
     
     
-    [[RequestManager sharedManager]getMessagefromID:@"23" onSucces:^(NSString *response)
+    [[RequestManager sharedManager]getMessagefromID:@"23" onSucces:^(NSArray *response)
     {
         
-        JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdJobs displayName:kJSQDemoAvatarDisplayNameCook text:response];
+        JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdJobs displayName:kJSQDemoAvatarDisplayNameCook text:[response lastObject]];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [self.demoData.messages addObject:copyMessage];
