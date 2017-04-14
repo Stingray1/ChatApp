@@ -55,7 +55,7 @@
     
     // [JSQSystemSoundPlayer jsq_playMessageSentSound];
     
-    [[RequestManager sharedManager]sendMessage:text andId:@"24"];
+    [[RequestManager sharedManager]sendMessage:text andId:@"23"];
     
     JSQMessage *message = [[JSQMessage alloc] initWithSenderId:senderId
                                              senderDisplayName:senderDisplayName
@@ -68,19 +68,33 @@
 }
 -(void)receiveMessagePressed:(UIBarButtonItem *)sender
 {
-    self.showTypingIndicator = !self.showTypingIndicator;
+//    self.showTypingIndicator = !self.showTypingIndicator;
      [self scrollToBottomAnimated:YES];
     
     
-    [[RequestManager sharedManager]getMessagefromID:@"24" onSucces:^(NSString *response)
+    [[RequestManager sharedManager]getMessagefromID:@"23" onSucces:^(NSDictionary *messageDictionaries)
     {
- 
-        JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdJobs displayName:kJSQDemoAvatarDisplayNameCook text:response];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+      
+        NSLog(@"sender id is %@",[messageDictionaries valueForKey:@"sender_id"]);
+
+        if([[[messageDictionaries valueForKey:@"sender_id" ]stringValue] isEqualToString:kJSQDemoAvatarIdSquires])
+        {
+            
+            JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires displayName:kJSQDemoAvatarDisplayNameCook text:[messageDictionaries valueForKey:@"text"]];
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+            [self.demoData.messages addObject:copyMessage];
+            [self finishReceivingMessageAnimated:YES];
+        }
+        else
+        {
+            JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdCook displayName:kJSQDemoAvatarDisplayNameCook text:[messageDictionaries valueForKey:@"text"]];
+            //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [self.demoData.messages addObject:copyMessage];
             [self finishReceivingMessageAnimated:YES];
-        });
+        }
+//        });
         
     }onFail:^(NSError *error ,NSInteger statusCode)
     {

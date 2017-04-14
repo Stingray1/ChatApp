@@ -13,9 +13,13 @@
 
 @property (nonatomic,strong) AFHTTPSessionManager *requestManager;
 
+
 @end
 
 @implementation RequestManager
+{
+    NSMutableArray* messagesArray;
+}
 
 +(RequestManager *)sharedManager
 {
@@ -179,10 +183,10 @@
      ];
 }
 
--(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSString *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
+-(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSDictionary *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
 {
     
-  
+    
     [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
 
 //    [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
@@ -194,21 +198,30 @@
          
          NSLog(@"RESPONSE OBJECT %@",responseObject);
          
-         NSMutableArray* post = [responseObject mutableCopy];
-         NSDictionary *dics = [post firstObject];
          
-         NSLog(@"dics %@",dics);
-         NSString *name = [dics valueForKey:@"text"];
-         
-         
-        //         NSMutableArray *message = [objects mutableCopy];
-     
-        // NSLog(@"mesajul este  %@",message);
-
-         if(success)
-         {
-             success(name);
-         }
+         NSLog(@"message array count %lu",(unsigned long)[messagesArray count]);
+          if ([messagesArray count]==0)
+          {
+              messagesArray = [responseObject mutableCopy];
+              for (NSDictionary *messageDictionary in messagesArray)
+              {
+//                  NSString *name = [messageDictionary valueForKey:@"text"];
+//                  NSLog(@"Name %@" ,name);
+                    success(messageDictionary);
+              }
+          }
+          else{
+            
+              
+              messagesArray = [responseObject mutableCopy];
+              NSDictionary *messageDictionary = [messagesArray firstObject];
+              if (![[[messageDictionary objectForKey:@"sender_id"]stringValue] isEqualToString:@"24"]) {
+                        //NSString *name = [messageDictionary valueForKey:@"text"];
+                        success(messageDictionary);
+                        NSLog(@"dics %@",messageDictionary);
+                  }
+          }
+    
          
      } failure:^(NSURLSessionTask *operation, NSError *error) {
          NSLog(@"Error: %@", error);

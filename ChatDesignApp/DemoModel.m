@@ -26,21 +26,22 @@
         
          JSQMessagesAvatarImage *wozImage = [JSQMessagesAvatarImageFactory avatarImageWithImage:[UIImage imageNamed:@"demo_avatar_woz"] diameter:kJSQMessagesCollectionViewAvatarSizeDefault];
         
-          self.avatars = @{ kJSQDemoAvatarIdSquires : jsqImage,
-                          kJSQDemoAvatarIdCook : cookImage,
-                          kJSQDemoAvatarIdJobs : jobsImage,
-                          kJSQDemoAvatarIdWoz : wozImage };
-//
-        self.users = @{ kJSQDemoAvatarIdJobs : kJSQDemoAvatarDisplayNameJobs,
-                        kJSQDemoAvatarIdCook : kJSQDemoAvatarDisplayNameCook,
-                        kJSQDemoAvatarIdWoz : kJSQDemoAvatarDisplayNameWoz,
-                        kJSQDemoAvatarIdSquires : kJSQDemoAvatarDisplayNameSquires };
+//          self.avatars = @{ kJSQDemoAvatarIdSquires : jsqImage,
+//                          kJSQDemoAvatarIdCook : cookImage,
+//                          kJSQDemoAvatarIdJobs : jobsImage,
+//                          kJSQDemoAvatarIdCook : wozImage };
+////
+//        self.users = @{ kJSQDemoAvatarIdJobs : kJSQDemoAvatarDisplayNameJobs,
+//                        kJSQDemoAvatarIdCook : kJSQDemoAvatarDisplayNameCook,
+//                        kJSQDemoAvatarIdWoz : kJSQDemoAvatarDisplayNameWoz,
+//                        kJSQDemoAvatarIdSquires : kJSQDemoAvatarDisplayNameSquires };
         
         
         
 //        self.avatars = @{kJSQDemoAvatarIdSquires : jsqImage};
 //        
-//        self.users = @{kJSQDemoAvatarIdSquires : kJSQDemoAvatarDisplayNameSquires };
+        self.users = @{kJSQDemoAvatarIdSquires : kJSQDemoAvatarDisplayNameSquires,
+                       kJSQDemoAvatarIdCook : kJSQDemoAvatarDisplayNameCook};
 
 
         JSQMessagesBubbleImageFactory *bubbleFactory = [[JSQMessagesBubbleImageFactory alloc] init];

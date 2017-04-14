@@ -12,15 +12,15 @@
 #import <JSQMessagesAvatarImage.h>
 #import <JSQMessageAvatarImageDataSource.h>
 
-static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Jesse Squires";
+static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Plasiciuc Vadim";
 static NSString * const kJSQDemoAvatarDisplayNameCook = @"Marcel Spinu";
-static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
-static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
+//static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
+//static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
 
-static NSString * const kJSQDemoAvatarIdSquires = @"1";
-static NSString * const kJSQDemoAvatarIdCook = @"2";
-static NSString * const kJSQDemoAvatarIdJobs = @"19";
-static NSString * const kJSQDemoAvatarIdWoz = @"4";
+static NSString * const kJSQDemoAvatarIdSquires = @"23";
+static NSString * const kJSQDemoAvatarIdCook = @"24";
+//static NSString * const kJSQDemoAvatarIdJobs = @"19";
+//static NSString * const kJSQDemoAvatarIdWoz = @"4";
 
 @interface DemoModel : NSObject
 
