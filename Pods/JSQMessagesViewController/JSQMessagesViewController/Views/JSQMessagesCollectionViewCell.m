@@ -116,6 +116,12 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.cellBottomLabelHeightConstraint.constant = 0.0f;
 
     self.avatarViewSize = CGSizeZero;
+    
+   
+    
+    
+    
+//    self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
 
     self.cellTopLabel.textAlignment = NSTextAlignmentCenter;
     self.cellTopLabel.font = [UIFont boldSystemFontOfSize:12.0f];
@@ -165,7 +171,9 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     self.textView.attributedText = nil;
 
     self.avatarImageView.image = nil;
+    
     self.avatarImageView.highlightedImage = nil;
+    
 }
 
 - (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes
@@ -213,6 +221,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 {
     [super setHighlighted:highlighted];
     self.avatarImageView.highlighted = highlighted;
+    
     self.messageBubbleImageView.highlighted = highlighted;
 }
 
@@ -235,6 +244,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
     if ([UIDevice jsq_isCurrentDeviceBeforeiOS8]) {
         self.contentView.frame = bounds;
+        
     }
 }
 
@@ -285,7 +295,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
 
     self.messageBubbleImageView.backgroundColor = backgroundColor;
     self.avatarImageView.backgroundColor = backgroundColor;
-
+    
     self.messageBubbleContainerView.backgroundColor = backgroundColor;
     self.avatarContainerView.backgroundColor = backgroundColor;
 }
@@ -295,8 +305,7 @@ static NSMutableSet *jsqMessagesCollectionViewCellActions = nil;
     if (CGSizeEqualToSize(avatarViewSize, self.avatarViewSize)) {
         return;
     }
-
-    [self jsq_updateConstraint:self.avatarContainerViewWidthConstraint withConstant:avatarViewSize.width];
+       [self jsq_updateConstraint:self.avatarContainerViewWidthConstraint withConstant:avatarViewSize.width];
     [self jsq_updateConstraint:self.avatarContainerViewHeightConstraint withConstant:avatarViewSize.height];
 }
 

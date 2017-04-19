@@ -36,7 +36,7 @@
 
 
 const CGFloat kJSQMessagesCollectionViewCellLabelHeightDefault = 20.0f;
-const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 30.0f;
+const CGFloat kJSQMessagesCollectionViewAvatarSizeDefault = 34.0f;
 
 
 @interface JSQMessagesCollectionViewFlowLayout ()

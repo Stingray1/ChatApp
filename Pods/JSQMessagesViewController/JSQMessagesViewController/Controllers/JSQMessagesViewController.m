@@ -265,6 +265,7 @@ JSQMessagesKeyboardControllerDelegate>
 {
     [super viewDidLoad];
 
+   
     [[[self class] nib] instantiateWithOwner:self options:nil];
 
     [self jsq_configureMessagesViewController];
@@ -554,6 +555,18 @@ JSQMessagesKeyboardControllerDelegate>
 
     JSQMessagesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.delegate = collectionView;
+    
+    
+    ////cod vadim
+    cell.avatarImageView.layer.cornerRadius = cell.avatarImageView.frame.size.width/2;
+    cell.avatarImageView.clipsToBounds =YES;
+    cell.avatarImageView.layer.borderWidth =3.0f;
+    cell.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
+    
+       [self.view setNeedsLayout];
+    
+  ///////
+    
 
     if (!isMediaMessage) {
         cell.textView.text = [messageItem text];
@@ -853,6 +866,8 @@ JSQMessagesKeyboardControllerDelegate>
     [menu setMenuVisible:NO animated:NO];
 
     JSQMessagesCollectionViewCell *selectedCell = (JSQMessagesCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:self.selectedIndexPathForMenu];
+    
+   
     CGRect selectedCellMessageBubbleFrame = [selectedCell convertRect:selectedCell.messageBubbleContainerView.frame toView:self.view];
 
     [menu setTargetRect:selectedCellMessageBubbleFrame inView:self.view];

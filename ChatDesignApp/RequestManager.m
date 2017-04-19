@@ -19,6 +19,8 @@
 @implementation RequestManager
 {
     NSMutableArray* messagesArray;
+    
+
 }
 
 +(RequestManager *)sharedManager
@@ -186,42 +188,54 @@
 -(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSDictionary *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
 {
     
+  
     
+
     [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
 
 //    [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
 //    [self.requestManager setResponseSerializer:[AFJSONResponseSerializer serializer]];
     
-    [self.requestManager GET:@"messages/23/" parameters:nil progress:nil
+    [self.requestManager GET:[NSString stringWithFormat:@"messages/%@/",userId] parameters:nil progress:nil
                       success:^(NSURLSessionTask *task, id responseObject)
      {
          
-         NSLog(@"RESPONSE OBJECT %@",responseObject);
+         if([messagesArray count] == [responseObject count])
+        NSLog(@"RESPONSE OBJECT %@",responseObject);
          
          
          NSLog(@"message array count %lu",(unsigned long)[messagesArray count]);
           if ([messagesArray count]==0)
           {
               messagesArray = [responseObject mutableCopy];
-              for (NSDictionary *messageDictionary in messagesArray)
+              
+
+              for( long i=[messagesArray count]-1; i>=0; i--)
               {
-//                  NSString *name = [messageDictionary valueForKey:@"text"];
-//                  NSLog(@"Name %@" ,name);
-                    success(messageDictionary);
+                  NSDictionary *messageDictionary =[[NSDictionary alloc]init];
+                  messageDictionary = [messagesArray objectAtIndex:i];
+                  success(messageDictionary);
               }
           }
           else{
-            
-              
-              messagesArray = [responseObject mutableCopy];
-              NSDictionary *messageDictionary = [messagesArray firstObject];
-              if (![[[messageDictionary objectForKey:@"sender_id"]stringValue] isEqualToString:@"24"]) {
-                        //NSString *name = [messageDictionary valueForKey:@"text"];
+              if (!([messagesArray count] == [responseObject count])) {
+                
+                  NSInteger count = [messagesArray count];
+                  [messagesArray = responseObject mutableCopy];
+                  NSInteger count2 = [messagesArray count] - count;
+                  for (int i=(int)count2-1; i>=0; i--)
+                  {
+                    NSLog(@"i ESTE %d",i);
+                    NSDictionary *messageDictionary = [messagesArray objectAtIndex:i];
+                    if (![[[messageDictionary objectForKey:@"sender_id"]stringValue] isEqualToString:@"24"]) {
                         success(messageDictionary);
-                        NSLog(@"dics %@",messageDictionary);
+                    NSLog(@"dics %@",messageDictionary);
+
                   }
+                  }
+           
           }
-    
+          }
          
      } failure:^(NSURLSessionTask *operation, NSError *error) {
          NSLog(@"Error: %@", error);

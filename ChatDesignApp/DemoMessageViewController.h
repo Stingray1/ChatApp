@@ -32,7 +32,8 @@
 
 @property (strong, nonatomic) DemoModel *demoData;
 
-
+@property (strong,nonatomic) NSString *name;
+@property (strong,nonatomic) NSString *userID;
 
 
 @end

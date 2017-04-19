@@ -11,20 +11,24 @@
 #import <JSQMessagesAvatarImageFactory.h>
 #import <JSQMessagesAvatarImage.h>
 #import <JSQMessageAvatarImageDataSource.h>
-
-static NSString * const kJSQDemoAvatarDisplayNameSquires = @"Plasiciuc Vadim";
-static NSString * const kJSQDemoAvatarDisplayNameCook = @"Marcel Spinu";
+static NSString * kJSQDemoAvatarDisplayNameSquires = @"Spinu Marcel";
+static NSString * kJSQDemoAvatarDisplayNameCook = @"Random";
 //static NSString * const kJSQDemoAvatarDisplayNameJobs = @"Jobs";
 //static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
 
-static NSString * const kJSQDemoAvatarIdSquires = @"23";
-static NSString * const kJSQDemoAvatarIdCook = @"24";
+static NSString *  kJSQDemoAvatarIdSquires = @"24";
+static NSString *  kJSQDemoAvatarIdCook = @"23";
 //static NSString * const kJSQDemoAvatarIdJobs = @"19";
 //static NSString * const kJSQDemoAvatarIdWoz = @"4";
 
 @interface DemoModel : NSObject
 
+@property (strong,nonatomic) NSString *name;
+
+
+
 @property (strong, nonatomic) NSMutableArray *messages;
+
 
 @property (strong, nonatomic) NSDictionary *avatars;
 

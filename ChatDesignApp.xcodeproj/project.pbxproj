@@ -20,6 +20,9 @@
 		DD7642B31E9B850C00DBA596 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD7642B11E9B850C00DBA596 /* Main.storyboard */; };
 		DD7642B51E9B850C00DBA596 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD7642B41E9B850C00DBA596 /* Assets.xcassets */; };
 		DD7642B81E9B850C00DBA596 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD7642B61E9B850C00DBA596 /* LaunchScreen.storyboard */; };
+		DDCD4E931EA61F7700B83802 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4E921EA61F7700B83802 /* FriendsViewController.m */; };
+		DDCD4E971EA61FEB00B83802 /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4E951EA61FEB00B83802 /* FriendsCell.m */; };
+		DDCD4E981EA61FEB00B83802 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,11 @@
 		DD7642B41E9B850C00DBA596 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD7642B71E9B850C00DBA596 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD7642B91E9B850C00DBA596 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDCD4E911EA61F7700B83802 /* FriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsViewController.h; sourceTree = "<group>"; };
+		DDCD4E921EA61F7700B83802 /* FriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsViewController.m; sourceTree = "<group>"; };
+		DDCD4E941EA61FEB00B83802 /* FriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsCell.h; sourceTree = "<group>"; };
+		DDCD4E951EA61FEB00B83802 /* FriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
+		DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCell.xib; sourceTree = "<group>"; };
 		FF47516AF3AC40ED6B44CB9C /* Pods-ChatDesignApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDesignApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDesignApp/Pods-ChatDesignApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +121,7 @@
 				DD2322BB1E9E17DD00CED41B /* RequestManager */,
 				DD2322BC1E9E17E900CED41B /* LoginController */,
 				DD9934FA1E9B852200AA9F37 /* ChatTimeLine */,
+				DDCD4E901EA61F5200B83802 /* FriendsTableView */,
 				DD7642AB1E9B850C00DBA596 /* AppDelegate.h */,
 				DD7642AC1E9B850C00DBA596 /* AppDelegate.m */,
 				DD7642AE1E9B850C00DBA596 /* ViewController.h */,
@@ -144,6 +153,18 @@
 				DD1C4C801E9B9E40008AF464 /* DemoModel.m */,
 			);
 			name = ChatTimeLine;
+			sourceTree = "<group>";
+		};
+		DDCD4E901EA61F5200B83802 /* FriendsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				DDCD4E911EA61F7700B83802 /* FriendsViewController.h */,
+				DDCD4E921EA61F7700B83802 /* FriendsViewController.m */,
+				DDCD4E941EA61FEB00B83802 /* FriendsCell.h */,
+				DDCD4E951EA61FEB00B83802 /* FriendsCell.m */,
+				DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */,
+			);
+			name = FriendsTableView;
 			sourceTree = "<group>";
 		};
 		F802490694EA69E6A9701CB0 /* Pods */ = {
@@ -220,6 +241,7 @@
 				DD7642B81E9B850C00DBA596 /* LaunchScreen.storyboard in Resources */,
 				DD277AFC1E9CD16A0061EA2D /* GoogleService-Info.plist in Resources */,
 				DD7642B51E9B850C00DBA596 /* Assets.xcassets in Resources */,
+				DDCD4E981EA61FEB00B83802 /* FriendsCell.xib in Resources */,
 				DD7642B31E9B850C00DBA596 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,8 +302,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7642B01E9B850C00DBA596 /* ViewController.m in Sources */,
+				DDCD4E971EA61FEB00B83802 /* FriendsCell.m in Sources */,
 				DD7642AD1E9B850C00DBA596 /* AppDelegate.m in Sources */,
 				DD57AB4F1E9CF6000000B2BA /* AuthToken.m in Sources */,
+				DDCD4E931EA61F7700B83802 /* FriendsViewController.m in Sources */,
 				DD277AFF1E9CD1F90061EA2D /* LoginViewController.m in Sources */,
 				DD7642AA1E9B850C00DBA596 /* main.m in Sources */,
 				DD1C4C811E9B9E40008AF464 /* DemoModel.m in Sources */,

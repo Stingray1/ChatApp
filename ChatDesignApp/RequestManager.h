@@ -16,7 +16,7 @@
 
 -(void)loginWithEmail :(NSString *)email
 username:(NSString *)username
-         password:(NSString *)password onSucces:(void(^)(NSString *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure;
+         password:(NSString *)password onSucces:(void(^)(NSString *response))success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure;
 
 -(void)logout;
 

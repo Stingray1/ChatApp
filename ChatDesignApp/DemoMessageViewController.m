@@ -10,41 +10,118 @@
 #import "JSQMessage.h"
 #import <JSQMessagesBubbleImageFactory.h>
 #import "RequestManager.h"
-
+#import "FriendsViewController.h"
 
 
 @interface DemoMessageViewController ()
+
+@property (strong, nonatomic) dispatch_source_t timer;
+
 
 @end
 
 @implementation DemoMessageViewController
 
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"JSQMessages";
+   // self.title = [NSString stringWithFormat:@"%@",self.name];
+    self.navigationItem.title =@"Vadim";
+    
+    
+    
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:(155/255.0) green:(186/255.0) blue:(205/255.0) alpha:1];
+    
+   // self.navigationController.navigationBar.barTintColor = [UIColor redColor];
+    
+    CGRect frame = CGRectMake(0, 0, 400, 44);
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.backgroundColor = [UIColor clearColor];
+    label.font = [UIFont boldSystemFontOfSize:13.0];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.textColor = [UIColor whiteColor];
+    label.numberOfLines =0;
+    label.text = [NSString stringWithFormat:@"chat with \n%@",self.name];
+    self.navigationItem.titleView = label;
+    
+    
     
     self.inputToolbar.contentView.textView.pasteDelegate = self;
 
     self.demoData = [[DemoModel alloc] init];
     
+    kJSQDemoAvatarDisplayNameCook = self.name;
+    kJSQDemoAvatarIdCook = self.userID;
+    
+    NSLog(@"Name is %@",self.demoData.name);
+    
+    [self.inputToolbar.contentView.textView setAutocorrectionType:UITextAutocorrectionTypeNo];
+
     self.showLoadEarlierMessagesHeader = YES;
 
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage jsq_defaultTypingIndicatorImage]
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(receiveMessagePressed:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(getBackToFriendsTableView)];
     
     
-      
+    [self startTimer];
+    NSLog(@"Timer starts");
 
+    
+    
 }
+
+
+-(void)getBackToFriendsTableView
+{
+//    NSLog(@"pressed");
+//    FriendsViewController *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"FriendsViewController"];
+//    [self.navigationController pushViewController:vc animated:YES];
+
+        // Navigation button was pressed. Do some stuff
+        [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    dispatch_suspend(_timer);
+    NSLog(@"Timer stops");
+
+    
+    [super viewWillDisappear:YES];
+    
+    
+    
+}
+
+- (void)startTimer
+{
+    if (!self.timer) {
+        self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+    }
+    if (self.timer) {
+        dispatch_source_set_timer(self.timer, dispatch_walltime(NULL, 0), 3ull*NSEC_PER_SEC, 10ull*NSEC_PER_SEC);
+        dispatch_source_set_event_handler(_timer, ^(void) {
+            [self tick];
+        });
+        dispatch_resume(_timer);
+    }
+}
+- (void)tick
+{
+    [self receiveMessagePressed:nil];
+}
+
 - (void)didPressSendButton:(UIButton *)button
            withMessageText:(NSString *)text
                   senderId:(NSString *)senderId
          senderDisplayName:(NSString *)senderDisplayName
                       date:(NSDate *)date
 {
+    
+    
     /**
      *  Sending a message. Your implementation of this method should do *at least* the following:
      *
@@ -72,7 +149,7 @@
      [self scrollToBottomAnimated:YES];
     
     
-    [[RequestManager sharedManager]getMessagefromID:@"23" onSucces:^(NSDictionary *messageDictionaries)
+    [[RequestManager sharedManager]getMessagefromID:self.userID onSucces:^(NSDictionary *messageDictionaries)
     {
       
         NSLog(@"sender id is %@",[messageDictionaries valueForKey:@"sender_id"]);
