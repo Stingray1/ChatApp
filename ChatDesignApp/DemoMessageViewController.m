@@ -11,7 +11,10 @@
 #import <JSQMessagesBubbleImageFactory.h>
 #import "RequestManager.h"
 #import "FriendsViewController.h"
+#import "JTSImageViewController.h"
+#import "JTSImageInfo.h"
 
+#import "STEmojiKeyboard.h"
 
 @interface DemoMessageViewController ()
 
@@ -49,7 +52,7 @@
     
     
     self.inputToolbar.contentView.textView.pasteDelegate = self;
-
+    self.inputToolbar.clipsToBounds =YES;
     self.demoData = [[DemoModel alloc] init];
     
     kJSQDemoAvatarDisplayNameCook = self.name;
@@ -58,6 +61,8 @@
     NSLog(@"Name is %@",self.demoData.name);
     
     [self.inputToolbar.contentView.textView setAutocorrectionType:UITextAutocorrectionTypeNo];
+    
+    
 
     self.showLoadEarlierMessagesHeader = YES;
 
@@ -68,13 +73,21 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(getBackToFriendsTableView)];
     
     
-    [self startTimer];
+    
+    UITapGestureRecognizer* tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleCollectionTapRecognizer:)];
+    [self.collectionView addGestureRecognizer:tapRecognizer];
+    
+   // [self startTimer];
     NSLog(@"Timer starts");
 
     
     
 }
 
+-(void)viewDidLayoutSubviews
+{
+    
+}
 
 -(void)getBackToFriendsTableView
 {
@@ -147,17 +160,18 @@
 {
 //    self.showTypingIndicator = !self.showTypingIndicator;
      [self scrollToBottomAnimated:YES];
-    
-    
     [[RequestManager sharedManager]getMessagefromID:self.userID onSucces:^(NSDictionary *messageDictionaries)
     {
-      
-        NSLog(@"sender id is %@",[messageDictionaries valueForKey:@"sender_id"]);
-
+       // NSLog(@"sender id is %@",[messageDictionaries valueForKey:@"sender_id"])
+        
         if([[[messageDictionaries valueForKey:@"sender_id" ]stringValue] isEqualToString:kJSQDemoAvatarIdSquires])
         {
+            JSQMessage *copyMessage = [JSQMessage
+                                       messageWithSenderId:kJSQDemoAvatarIdSquires
+                                       displayName:kJSQDemoAvatarDisplayNameCook
+                                       text:[messageDictionaries valueForKey:@"text"]];
             
-            JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires displayName:kJSQDemoAvatarDisplayNameCook text:[messageDictionaries valueForKey:@"text"]];
+            
 //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
             [self.demoData.messages addObject:copyMessage];
@@ -165,12 +179,17 @@
         }
         else
         {
-            JSQMessage *copyMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdCook displayName:kJSQDemoAvatarDisplayNameCook text:[messageDictionaries valueForKey:@"text"]];
-            //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            JSQMessage *copyMessage = [JSQMessage
+                                       messageWithSenderId:kJSQDemoAvatarIdCook
+                                       displayName:kJSQDemoAvatarDisplayNameCook
+                                       text:[messageDictionaries valueForKey:@"text"]];
+            
+            //  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             
             [self.demoData.messages addObject:copyMessage];
             [self finishReceivingMessageAnimated:YES];
         }
+   
 //        });
         
     }onFail:^(NSError *error ,NSInteger statusCode)
@@ -423,12 +442,57 @@
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapMessageBubbleAtIndexPath:(NSIndexPath *)indexPath
 {
+    [self.inputToolbar.contentView.textView resignFirstResponder];
     NSLog(@"Tapped message bubble!");
+    JSQMessage *message = [self.demoData.messages objectAtIndex:indexPath.row];
+    
+    if (message.isMediaMessage) {
+        id<JSQMessageMediaData> mediaItem = message.media;
+        
+        if ([mediaItem isKindOfClass:[JSQPhotoMediaItem class]]) {
+            
+            NSLog(@"Tapped photo message bubble!");
+            JSQPhotoMediaItem *photoItem = (JSQPhotoMediaItem *)mediaItem;
+            [self popupImage:photoItem.image];
+        }
+    }
+}
+
+- (void) popupImage:(UIImage*)image
+{
+    
+    UIImageView *bigImageButton = [[UIImageView alloc]initWithImage:image];
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+    imageInfo.image = bigImageButton.image;
+    imageInfo.referenceRect = bigImageButton.frame;
+    imageInfo.referenceView = bigImageButton.superview;
+    imageInfo.referenceContentMode = bigImageButton.contentMode;
+    imageInfo.referenceCornerRadius = bigImageButton.layer.cornerRadius;
+    
+    // Setup view controller
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Scaled];
+    
+    // Present the view controller.
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
 }
 
 - (void)collectionView:(JSQMessagesCollectionView *)collectionView didTapCellAtIndexPath:(NSIndexPath *)indexPath touchLocation:(CGPoint)touchLocation
 {
+    [self.inputToolbar.contentView.textView resignFirstResponder];
+    
     NSLog(@"Tapped cell at %@!", NSStringFromCGPoint(touchLocation));
+}
+- (void) handleCollectionTapRecognizer:(UITapGestureRecognizer*)recognizer
+{
+    if(recognizer.state == UIGestureRecognizerStateEnded)
+    {
+        NSLog(@"tapped");
+        if([self.inputToolbar.contentView.textView isFirstResponder])
+            [self.inputToolbar.contentView.textView resignFirstResponder];
+    }
 }
 
 #pragma mark - JSQMessagesComposerTextViewPasteDelegate methods
@@ -452,16 +516,66 @@
 #pragma mark - JSQMessagesViewAccessoryDelegate methods
 - (void)didPressAccessoryButton:(UIButton *)sender
 {
+    STEmojiKeyboard *keyboard = [STEmojiKeyboard keyboard];
+    keyboard.backgroundColor = [UIColor colorWithRed:(245/255.0) green:(245/255.0) blue:(252/255.0) alpha:1];
+     keyboard.textView = self.inputToolbar.contentView.textView;
+    if (sender.tag == 1){
+        self.inputToolbar.contentView.textView.inputView = nil;
+        [self.inputToolbar.contentView.leftBarButtonItem setImage:[UIImage imageNamed:@"Forma 1.png"] forState:UIControlStateNormal];
+
+            }
+    else{
+        [keyboard setTextView:self.inputToolbar.contentView.textView];
+        [self.inputToolbar.contentView.leftBarButtonItem setImage:[UIImage imageNamed:@"btn_keyboard@2x.png"] forState:UIControlStateNormal];
+   
+    }
+    [self.inputToolbar.contentView.textView reloadInputViews];
+    sender.tag = (sender.tag+1)%2;
+    [self.inputToolbar.contentView.textView becomeFirstResponder];
+    
+
+
+}
+
+
+
+
+- (void)didPressCameraButton:(UIButton *)sender
+{
     [self.inputToolbar.contentView.textView resignFirstResponder];
     
-    UIActionSheet *sheet = [[UIActionSheet alloc] initWithTitle:NSLocalizedString(@"Media messages", nil)
-                                                       delegate:self
-                                              cancelButtonTitle:NSLocalizedString(@"Cancel", nil)
-                                         destructiveButtonTitle:nil
-                                              otherButtonTitles:NSLocalizedString(@"Send photo", nil), NSLocalizedString(@"Send location", nil), NSLocalizedString(@"Send video", nil), NSLocalizedString(@"Send video thumbnail", nil), NSLocalizedString(@"Send audio", nil), nil];
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc]init];
+    imagePickerController.delegate = self;
     
-    [sheet showFromToolbar:self.inputToolbar];
+    UIAlertController* alertController = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Take a photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        imagePickerController.sourceType =  UIImagePickerControllerSourceTypeCamera;
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+        
+    }]];
+    
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Choose from Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        imagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
+        [self presentViewController:imagePickerController animated:YES completion:nil];
+        
+    }]];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+
 }
+
+#pragma ImagePickerCOntorller -delegate
+    -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+        
+       [self.demoData addPhotoMediaMessage:[info objectForKey:UIImagePickerControllerOriginalImage]];
+        [picker dismissViewControllerAnimated:YES completion:nil];
+         [self finishSendingMessageAnimated:YES];
+    }
 
 
 

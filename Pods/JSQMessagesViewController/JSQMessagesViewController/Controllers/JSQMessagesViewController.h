@@ -220,6 +220,7 @@
  */
 - (void)didPressAccessoryButton:(UIButton *)sender;
 
+- (void)didPressCameraButton:(UIButton *)sender;
 /**
  *  Animates the sending of a new message. See `finishSendingMessageAnimated:` for more details.
  *

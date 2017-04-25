@@ -27,7 +27,7 @@
 
 + (UIButton *)defaultAccessoryButtonItem
 {
-    UIImage *accessoryImage = [UIImage jsq_defaultAccessoryImage];
+    UIImage *accessoryImage = [UIImage imageNamed:@"Forma 1.png"];
     UIImage *normalImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor lightGrayColor]];
     UIImage *highlightedImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor darkGrayColor]];
 
@@ -43,6 +43,43 @@
 
     return accessoryButton;
 }
++ (UIButton *)keyboardButtonItem
+{
+    UIImage *accessoryImage = [UIImage imageNamed:@"btn_keyboard.png"];
+    UIImage *normalImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor lightGrayColor]];
+    UIImage *highlightedImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor darkGrayColor]];
+    
+    UIButton *accessoryButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, accessoryImage.size.width, 32.0f)];
+    [accessoryButton setImage:normalImage forState:UIControlStateNormal];
+    [accessoryButton setImage:highlightedImage forState:UIControlStateHighlighted];
+    
+    accessoryButton.contentMode = UIViewContentModeScaleAspectFit;
+    accessoryButton.backgroundColor = [UIColor clearColor];
+    accessoryButton.tintColor = [UIColor lightGrayColor];
+    
+    accessoryButton.accessibilityLabel = [NSBundle jsq_localizedStringForKey:@"accessory_button_accessibility_label"];
+    
+    return accessoryButton;
+}
++ (UIButton *)defaultCameraButtonItem
+{
+    UIImage *accessoryImage = [UIImage imageNamed:@"camera.png"];
+    UIImage *normalImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor lightGrayColor]];
+    UIImage *highlightedImage = [accessoryImage jsq_imageMaskedWithColor:[UIColor darkGrayColor]];
+    
+    UIButton *accessoryButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, accessoryImage.size.width, 32.0f)];
+    [accessoryButton setImage:normalImage forState:UIControlStateNormal];
+    [accessoryButton setImage:highlightedImage forState:UIControlStateHighlighted];
+    
+    accessoryButton.contentMode = UIViewContentModeScaleAspectFit;
+    accessoryButton.backgroundColor = [UIColor clearColor];
+    accessoryButton.tintColor = [UIColor lightGrayColor];
+    
+    accessoryButton.accessibilityLabel = [NSBundle jsq_localizedStringForKey:@"accessory_button_accessibility_label"];
+    
+    return accessoryButton;
+}
+
 
 + (UIButton *)defaultSendButtonItem
 {

@@ -7,8 +7,7 @@ target 'ChatDesignApp' do
 
 pod 'JSQMessagesViewController'
   # Pods for ChatDesignApp
-pod 'Firebase/Auth'
-pod 'Firebase/Core'
-pod ‘Firebase/Database’
+
 pod 'AFNetworking', '~> 3.0'
+
 end

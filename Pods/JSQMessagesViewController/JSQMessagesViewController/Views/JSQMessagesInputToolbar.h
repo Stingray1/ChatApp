@@ -50,6 +50,10 @@
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
        didPressLeftBarButton:(UIButton *)sender;
 
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar
+       didPressCameraBarButton:(UIButton *)sender;
+
+
 @end
 
 

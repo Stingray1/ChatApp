@@ -33,6 +33,12 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 @property (weak, nonatomic) IBOutlet UIView *rightBarButtonContainerView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightBarButtonContainerViewWidthConstraint;
 
+
+////
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cameraBarButtonContainerViewWidthConstraint;
+
+////
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftHorizontalSpacingConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightHorizontalSpacingConstraint;
 
@@ -58,6 +64,7 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 
     [self setTranslatesAutoresizingMaskIntoConstraints:NO];
 
+    self.clipsToBounds = YES;
     self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
     self.rightHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
 
@@ -109,6 +116,45 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
     self.leftBarButtonContainerViewWidthConstraint.constant = leftBarButtonItemWidth;
     [self setNeedsUpdateConstraints];
 }
+
+///Cod Vadim
+- (void)setCameraBarButtonItem:(UIButton *)cameraBarButtonItem
+{
+    if (_cameraBarButtonItem) {
+        [_cameraBarButtonItem removeFromSuperview];
+    }
+    
+    if (!cameraBarButtonItem) {
+        _cameraBarButtonItem = nil;
+        self.leftHorizontalSpacingConstraint.constant = 0.0f;
+        self.cameraBarButtonItemItemWidth = 0.0f;
+        self.cameraBarButtonContainerView.hidden = YES;
+        return;
+    }
+    
+    if (CGRectEqualToRect(cameraBarButtonItem.frame, CGRectZero)) {
+        cameraBarButtonItem.frame = self.cameraBarButtonContainerView.bounds;
+    }
+    
+    self.cameraBarButtonContainerView.hidden = NO;
+    self.leftHorizontalSpacingConstraint.constant = kJSQMessagesToolbarContentViewHorizontalSpacingDefault;
+    self.cameraBarButtonItemItemWidth = CGRectGetWidth(cameraBarButtonItem.frame);
+    
+    [cameraBarButtonItem setTranslatesAutoresizingMaskIntoConstraints:NO];
+    
+    [self.cameraBarButtonContainerView addSubview:cameraBarButtonItem];
+    [self.cameraBarButtonContainerView jsq_pinAllEdgesOfSubview:cameraBarButtonItem];
+    [self setNeedsUpdateConstraints];
+    
+    _cameraBarButtonItem = cameraBarButtonItem;
+}
+- (void)setCameraBarButtonItemItemWidth:(CGFloat)cameraBarButtonItemItemWidth
+{
+    self.cameraBarButtonContainerViewWidthConstraint.constant = cameraBarButtonItemItemWidth;
+    [self setNeedsUpdateConstraints];
+}
+
+/////////////////
 
 - (void)setRightBarButtonItem:(UIButton *)rightBarButtonItem
 {
@@ -167,6 +213,11 @@ const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingDefault = 8.0f;
 }
 
 - (CGFloat)rightBarButtonItemWidth
+{
+    return self.rightBarButtonContainerViewWidthConstraint.constant;
+}
+
+- (CGFloat)cameraBarButtonItemItemWidth
 {
     return self.rightBarButtonContainerViewWidthConstraint.constant;
 }

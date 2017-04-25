@@ -62,4 +62,65 @@
 
     self.messages  = [[NSMutableArray alloc]init];
 }
+- (void)addAudioMediaMessage
+{
+    NSString * sample = [[NSBundle mainBundle] pathForResource:@"jsq_messages_sample" ofType:@"m4a"];
+    NSData * audioData = [NSData dataWithContentsOfFile:sample];
+    JSQAudioMediaItem *audioItem = [[JSQAudioMediaItem alloc] initWithData:audioData];
+    JSQMessage *audioMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires
+                                                   displayName:kJSQDemoAvatarDisplayNameSquires
+                                                         media:audioItem];
+    [self.messages addObject:audioMessage];
+}
+
+- (void)addPhotoMediaMessage:(UIImage *)image
+{
+    JSQPhotoMediaItem *photoItem = [[JSQPhotoMediaItem alloc] initWithImage:image];
+    JSQMessage *photoMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires
+                                                   displayName:kJSQDemoAvatarDisplayNameSquires
+                                                         media:photoItem];
+    [self.messages addObject:photoMessage];
+}
+
+- (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion
+{
+    CLLocation *ferryBuildingInSF = [[CLLocation alloc] initWithLatitude:37.795313 longitude:-122.393757];
+    
+    JSQLocationMediaItem *locationItem = [[JSQLocationMediaItem alloc] init];
+    [locationItem setLocation:ferryBuildingInSF withCompletionHandler:completion];
+    
+    JSQMessage *locationMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires
+                                                      displayName:kJSQDemoAvatarDisplayNameSquires
+                                                            media:locationItem];
+    [self.messages addObject:locationMessage];
+}
+
+- (void)addVideoMediaMessage
+{
+    // don't have a real video, just pretending
+    NSURL *videoURL = [NSURL URLWithString:@"file://"];
+    
+    JSQVideoMediaItem *videoItem = [[JSQVideoMediaItem alloc] initWithFileURL:videoURL isReadyToPlay:YES];
+    JSQMessage *videoMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires
+                                                   displayName:kJSQDemoAvatarDisplayNameSquires
+                                                         media:videoItem];
+    [self.messages addObject:videoMessage];
+}
+
+- (void)addVideoMediaMessageWithThumbnail
+{
+    // don't have a real video, just pretending
+    NSURL *videoURL = [NSURL URLWithString:@"file://"];
+    
+    JSQVideoMediaItem *videoItem = [[JSQVideoMediaItem alloc] initWithFileURL:videoURL isReadyToPlay:YES];
+    JSQMessage *videoMessage = [JSQMessage messageWithSenderId:kJSQDemoAvatarIdSquires
+                                                   displayName:kJSQDemoAvatarDisplayNameSquires
+                                                         media:videoItem];
+    [self.messages addObject:videoMessage];
+}
+
+
+
+
+
 @end

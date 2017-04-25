@@ -9,11 +9,7 @@
 #import "ViewController.h"
 #import <JSQMessagesViewController.h>
 #import "DemoModel.h"
-#import <Firebase/Firebase.h>
-@import Firebase;
-@import FirebaseDatabase;
-@import FirebaseCore;
-@import FirebaseInstanceID;
+
 
 
 @class DemoMessagesViewController;
@@ -23,7 +19,7 @@
 
 @end
 
-@interface DemoMessageViewController : JSQMessagesViewController <UIActionSheetDelegate , JSQMessagesComposerTextViewPasteDelegate >
+@interface DemoMessageViewController : JSQMessagesViewController <UIActionSheetDelegate , JSQMessagesComposerTextViewPasteDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate >
 
 
 
@@ -31,7 +27,8 @@
 @property (weak, nonatomic) id<JSQDemoViewControllerDelegate> delegateModal;
 
 @property (strong, nonatomic) DemoModel *demoData;
-
+@property (copy, nonatomic) NSString *placeHolder;
+@property (strong, nonatomic) UILabel *placeHolderLabel;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *userID;
 

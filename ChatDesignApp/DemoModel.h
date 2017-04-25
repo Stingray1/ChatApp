@@ -38,4 +38,15 @@ static NSString *  kJSQDemoAvatarIdCook = @"23";
 
 @property (strong, nonatomic) NSDictionary *users;
 
+
+- (void)addPhotoMediaMessage:(UIImage *)image;
+
+- (void)addLocationMediaMessageCompletion:(JSQLocationMediaItemCompletionBlock)completion;
+
+- (void)addVideoMediaMessage;
+
+- (void)addVideoMediaMessageWithThumbnail;
+
+- (void)addAudioMediaMessage;
+
 @end

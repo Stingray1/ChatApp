@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Kustomkeyboard.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>DD1A32381EA8FE0700034463</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>DD7642A41E9B850C00DBA596</key>
 		<dict>
 			<key>primary</key>

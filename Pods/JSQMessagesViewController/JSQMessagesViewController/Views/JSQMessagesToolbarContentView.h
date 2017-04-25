@@ -111,6 +111,11 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  */
 @property (weak, nonatomic, readonly) UIView *rightBarButtonContainerView;
 
+//Cod Vadim
+@property (weak, nonatomic) IBOutlet UIView *cameraBarButtonContainerView;
+@property (strong, nonatomic) UIButton *cameraBarButtonItem;
+@property (assign, nonatomic) CGFloat cameraBarButtonItemItemWidth;
+
 #pragma mark - Class methods
 
 /**
@@ -119,6 +124,9 @@ FOUNDATION_EXPORT const CGFloat kJSQMessagesToolbarContentViewHorizontalSpacingD
  *  @return The initialized `UINib` object or `nil` if there were errors during
  *  initialization or the nib file could not be located.
  */
+
+
+
 + (UINib *)nib;
 
 @end

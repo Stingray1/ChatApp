@@ -32,7 +32,8 @@
  *  @return A newly created button.
  */
 + (UIButton *)defaultAccessoryButtonItem;
-
++ (UIButton *)defaultCameraButtonItem;
++ (UIButton *)keyboardButtonItem;
 /**
  *  Creates and returns a new button that is styled as the default send button. 
  *  The button has title text `@"Send"` and no image.

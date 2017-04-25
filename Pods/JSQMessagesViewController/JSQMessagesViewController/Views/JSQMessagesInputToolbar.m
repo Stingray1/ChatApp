@@ -50,20 +50,27 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
     self.jsq_isObserving = NO;
     self.sendButtonOnRight = YES;
-
-    self.preferredDefaultHeight = 44.0f;
+    self.clipsToBounds =YES;
+    
+    self.preferredDefaultHeight = 110.0f;
     self.maximumHeight = NSNotFound;
 
     JSQMessagesToolbarContentView *toolbarContentView = [self loadToolbarContentView];
+    
     toolbarContentView.frame = self.frame;
+   
     [self addSubview:toolbarContentView];
     [self jsq_pinAllEdgesOfSubview:toolbarContentView];
     [self setNeedsUpdateConstraints];
     _contentView = toolbarContentView;
+    
 
     [self jsq_addObservers];
 
     self.contentView.leftBarButtonItem = [JSQMessagesToolbarButtonFactory defaultAccessoryButtonItem];
+    
+    self.contentView.cameraBarButtonItem = [JSQMessagesToolbarButtonFactory defaultCameraButtonItem];
+    
     self.contentView.rightBarButtonItem = [JSQMessagesToolbarButtonFactory defaultSendButtonItem];
 
     [self toggleSendButtonEnabled];
@@ -101,6 +108,11 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 {
     [self.delegate messagesInputToolbar:self didPressRightBarButton:sender];
 }
+- (void)jsq_cameraBarButtonPressed:(UIButton *)sender
+{
+    [self.delegate messagesInputToolbar:self didPressCameraBarButton:sender];
+}
+
 
 #pragma mark - Input toolbar
 
@@ -132,6 +144,8 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                 [self.contentView.leftBarButtonItem addTarget:self
                                                        action:@selector(jsq_leftBarButtonPressed:)
                                              forControlEvents:UIControlEventTouchUpInside];
+                
+                
             }
             else if ([keyPath isEqualToString:NSStringFromSelector(@selector(rightBarButtonItem))]) {
 
@@ -143,7 +157,16 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
                                                         action:@selector(jsq_rightBarButtonPressed:)
                                               forControlEvents:UIControlEventTouchUpInside];
             }
-
+            else if([keyPath isEqualToString:NSStringFromSelector(@selector(cameraBarButtonItem))])
+            {
+                [self.contentView.cameraBarButtonItem removeTarget:self
+                                                           action:NULL
+                                                 forControlEvents:UIControlEventTouchUpInside];
+                [self.contentView.cameraBarButtonItem addTarget:self
+                                                         action:@selector(jsq_cameraBarButtonPressed:)
+                                               forControlEvents:UIControlEventTouchUpInside];
+            }
+            
             [self toggleSendButtonEnabled];
         }
     }
@@ -162,6 +185,11 @@ static void * kJSQMessagesInputToolbarKeyValueObservingContext = &kJSQMessagesIn
 
     [self.contentView addObserver:self
                        forKeyPath:NSStringFromSelector(@selector(rightBarButtonItem))
+                          options:0
+                          context:kJSQMessagesInputToolbarKeyValueObservingContext];
+    
+    [self.contentView addObserver:self
+                       forKeyPath:NSStringFromSelector(@selector(cameraBarButtonItem))
                           options:0
                           context:kJSQMessagesInputToolbarKeyValueObservingContext];
 

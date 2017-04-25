@@ -382,6 +382,11 @@ JSQMessagesKeyboardControllerDelegate>
 {
     NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
 }
+- (void)didPressCameraButton:(UIButton *)sender
+{
+    NSAssert(NO, @"Error! required method not implemented in subclass. Need to implement %s", __PRETTY_FUNCTION__);
+}
+
 
 - (void)finishSendingMessage
 {
@@ -786,6 +791,21 @@ JSQMessagesKeyboardControllerDelegate>
                             date:[NSDate date]];
     }
 }
+
+- (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressCameraBarButton:(UIButton *)sender
+{
+    if (toolbar.sendButtonOnRight) {
+        [self didPressCameraButton:sender];
+    }
+    else {
+        [self didPressSendButton:sender
+                 withMessageText:[self jsq_currentlyComposedMessageText]
+                        senderId:self.senderId
+               senderDisplayName:self.senderDisplayName
+                            date:[NSDate date]];
+    }
+}
+
 
 - (void)messagesInputToolbar:(JSQMessagesInputToolbar *)toolbar didPressRightBarButton:(UIButton *)sender
 {

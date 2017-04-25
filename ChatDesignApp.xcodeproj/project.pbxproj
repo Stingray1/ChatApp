@@ -8,8 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		9808C2168AF880AF74584A6A /* libPods-ChatDesignApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9041A9EFA84C6B5375309C0 /* libPods-ChatDesignApp.a */; };
+		DD1A31781EA8AE9000034463 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A31771EA8AE9000034463 /* CoreGraphics.framework */; };
+		DD1A317A1EA8AEA000034463 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1A31791EA8AEA000034463 /* Foundation.framework */; };
+		DD1A31871EA8BD0F00034463 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A317C1EA8BD0F00034463 /* JTSAnimatedGIFUtility.m */; };
+		DD1A31881EA8BD0F00034463 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A317E1EA8BD0F00034463 /* JTSImageInfo.m */; };
+		DD1A31891EA8BD0F00034463 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A31801EA8BD0F00034463 /* JTSImageViewController.m */; };
+		DD1A318A1EA8BD0F00034463 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A31821EA8BD0F00034463 /* JTSSimpleImageDownloader.m */; };
+		DD1A318B1EA8BD0F00034463 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A31841EA8BD0F00034463 /* UIApplication+JTSImageViewController.m */; };
+		DD1A318C1EA8BD0F00034463 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A31861EA8BD0F00034463 /* UIImage+JTSImageEffects.m */; };
+		DD1A32551EA9025800034463 /* emoji.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1A324A1EA9025800034463 /* emoji.json */; };
+		DD1A32561EA9025800034463 /* keyboard_btn_delete@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A324B1EA9025800034463 /* keyboard_btn_delete@2x.png */; };
+		DD1A32571EA9025800034463 /* keyboard_btn_delete@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A324C1EA9025800034463 /* keyboard_btn_delete@3x.png */; };
+		DD1A32581EA9025800034463 /* keyboard_preview_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A324D1EA9025800034463 /* keyboard_preview_bg@2x.png */; };
+		DD1A32591EA9025800034463 /* keyboard_preview_bg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A324E1EA9025800034463 /* keyboard_preview_bg@3x.png */; };
+		DD1A325A1EA9025800034463 /* STEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A32501EA9025800034463 /* STEmoji.m */; };
+		DD1A325B1EA9025800034463 /* STEmojiCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A32521EA9025800034463 /* STEmojiCollectionView.m */; };
+		DD1A325C1EA9025800034463 /* STEmojiKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1A32541EA9025800034463 /* STEmojiKeyboard.m */; };
+		DD1A32651EA902A400034463 /* btn_expression@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A325F1EA902A400034463 /* btn_expression@2x.png */; };
+		DD1A32661EA902A400034463 /* btn_expression@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A32601EA902A400034463 /* btn_expression@3x.png */; };
+		DD1A32671EA902A400034463 /* btn_keyboard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A32611EA902A400034463 /* btn_keyboard@2x.png */; };
+		DD1A32681EA902A400034463 /* btn_keyboard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD1A32621EA902A400034463 /* btn_keyboard@3x.png */; };
 		DD1C4C7E1E9B95CF008AF464 /* DemoMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1C4C7D1E9B95CF008AF464 /* DemoMessageViewController.m */; };
 		DD1C4C811E9B9E40008AF464 /* DemoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1C4C801E9B9E40008AF464 /* DemoModel.m */; };
+		DD23DB3D1EA7F664001C71B8 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = DD23DB3B1EA7F664001C71B8 /* camera.png */; };
+		DD23DB3E1EA7F664001C71B8 /* Forma 1.png in Resources */ = {isa = PBXBuildFile; fileRef = DD23DB3C1EA7F664001C71B8 /* Forma 1.png */; };
 		DD277AFC1E9CD16A0061EA2D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD277AFB1E9CD16A0061EA2D /* GoogleService-Info.plist */; };
 		DD277AFF1E9CD1F90061EA2D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD277AFE1E9CD1F90061EA2D /* LoginViewController.m */; };
 		DD57AB4F1E9CF6000000B2BA /* AuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = DD57AB4C1E9CF6000000B2BA /* AuthToken.m */; };
@@ -25,13 +47,58 @@
 		DDCD4E981EA61FEB00B83802 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DD1A32451EA8FE0700034463 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		C9F4AEEE7A76837A75D2B7C4 /* Pods-ChatDesignApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDesignApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDesignApp/Pods-ChatDesignApp.release.xcconfig"; sourceTree = "<group>"; };
 		D9041A9EFA84C6B5375309C0 /* libPods-ChatDesignApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ChatDesignApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1A31771EA8AE9000034463 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DD1A31791EA8AEA000034463 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DD1A317B1EA8BD0F00034463 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		DD1A317C1EA8BD0F00034463 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		DD1A317D1EA8BD0F00034463 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		DD1A317E1EA8BD0F00034463 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		DD1A317F1EA8BD0F00034463 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		DD1A31801EA8BD0F00034463 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		DD1A31811EA8BD0F00034463 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		DD1A31821EA8BD0F00034463 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		DD1A31831EA8BD0F00034463 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		DD1A31841EA8BD0F00034463 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		DD1A31851EA8BD0F00034463 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		DD1A31861EA8BD0F00034463 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		DD1A32171EA8D4A100034463 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = GZEmojiKeyboard/PrefixHeader.pch; sourceTree = "<group>"; };
+		DD1A324A1EA9025800034463 /* emoji.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emoji.json; sourceTree = "<group>"; };
+		DD1A324B1EA9025800034463 /* keyboard_btn_delete@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_btn_delete@2x.png"; sourceTree = "<group>"; };
+		DD1A324C1EA9025800034463 /* keyboard_btn_delete@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_btn_delete@3x.png"; sourceTree = "<group>"; };
+		DD1A324D1EA9025800034463 /* keyboard_preview_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_preview_bg@2x.png"; sourceTree = "<group>"; };
+		DD1A324E1EA9025800034463 /* keyboard_preview_bg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "keyboard_preview_bg@3x.png"; sourceTree = "<group>"; };
+		DD1A324F1EA9025800034463 /* STEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEmoji.h; sourceTree = "<group>"; };
+		DD1A32501EA9025800034463 /* STEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEmoji.m; sourceTree = "<group>"; };
+		DD1A32511EA9025800034463 /* STEmojiCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEmojiCollectionView.h; sourceTree = "<group>"; };
+		DD1A32521EA9025800034463 /* STEmojiCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEmojiCollectionView.m; sourceTree = "<group>"; };
+		DD1A32531EA9025800034463 /* STEmojiKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STEmojiKeyboard.h; sourceTree = "<group>"; };
+		DD1A32541EA9025800034463 /* STEmojiKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STEmojiKeyboard.m; sourceTree = "<group>"; };
+		DD1A325F1EA902A400034463 /* btn_expression@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_expression@2x.png"; sourceTree = "<group>"; };
+		DD1A32601EA902A400034463 /* btn_expression@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_expression@3x.png"; sourceTree = "<group>"; };
+		DD1A32611EA902A400034463 /* btn_keyboard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_keyboard@2x.png"; sourceTree = "<group>"; };
+		DD1A32621EA902A400034463 /* btn_keyboard@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_keyboard@3x.png"; sourceTree = "<group>"; };
 		DD1C4C7C1E9B95CF008AF464 /* DemoMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoMessageViewController.h; sourceTree = "<group>"; };
 		DD1C4C7D1E9B95CF008AF464 /* DemoMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoMessageViewController.m; sourceTree = "<group>"; };
 		DD1C4C7F1E9B9E40008AF464 /* DemoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoModel.h; sourceTree = "<group>"; };
 		DD1C4C801E9B9E40008AF464 /* DemoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoModel.m; sourceTree = "<group>"; };
+		DD23DB3B1EA7F664001C71B8 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		DD23DB3C1EA7F664001C71B8 /* Forma 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Forma 1.png"; sourceTree = "<group>"; };
 		DD277AFB1E9CD16A0061EA2D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DD277AFD1E9CD1F90061EA2D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DD277AFE1E9CD1F90061EA2D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -62,6 +129,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD1A317A1EA8AEA000034463 /* Foundation.framework in Frameworks */,
+				DD1A31781EA8AE9000034463 /* CoreGraphics.framework in Frameworks */,
 				9808C2168AF880AF74584A6A /* libPods-ChatDesignApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,9 +141,76 @@
 		4EE2BF78B925CEECD4B60581 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD1A31791EA8AEA000034463 /* Foundation.framework */,
+				DD1A31771EA8AE9000034463 /* CoreGraphics.framework */,
 				D9041A9EFA84C6B5375309C0 /* libPods-ChatDesignApp.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DD1A316E1EA8ADD800034463 /* ZoomImage */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A317B1EA8BD0F00034463 /* JTSAnimatedGIFUtility.h */,
+				DD1A317C1EA8BD0F00034463 /* JTSAnimatedGIFUtility.m */,
+				DD1A317D1EA8BD0F00034463 /* JTSImageInfo.h */,
+				DD1A317E1EA8BD0F00034463 /* JTSImageInfo.m */,
+				DD1A317F1EA8BD0F00034463 /* JTSImageViewController.h */,
+				DD1A31801EA8BD0F00034463 /* JTSImageViewController.m */,
+				DD1A31811EA8BD0F00034463 /* JTSSimpleImageDownloader.h */,
+				DD1A31821EA8BD0F00034463 /* JTSSimpleImageDownloader.m */,
+				DD1A31831EA8BD0F00034463 /* UIApplication+JTSImageViewController.h */,
+				DD1A31841EA8BD0F00034463 /* UIApplication+JTSImageViewController.m */,
+				DD1A31851EA8BD0F00034463 /* UIImage+JTSImageEffects.h */,
+				DD1A31861EA8BD0F00034463 /* UIImage+JTSImageEffects.m */,
+			);
+			path = ZoomImage;
+			sourceTree = "<group>";
+		};
+		DD1A32481EA9025800034463 /* emoji keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A325D1EA902A400034463 /* input bar */,
+				DD1A32491EA9025800034463 /* resource */,
+				DD1A324F1EA9025800034463 /* STEmoji.h */,
+				DD1A32501EA9025800034463 /* STEmoji.m */,
+				DD1A32511EA9025800034463 /* STEmojiCollectionView.h */,
+				DD1A32521EA9025800034463 /* STEmojiCollectionView.m */,
+				DD1A32531EA9025800034463 /* STEmojiKeyboard.h */,
+				DD1A32541EA9025800034463 /* STEmojiKeyboard.m */,
+			);
+			path = "emoji keyboard";
+			sourceTree = "<group>";
+		};
+		DD1A32491EA9025800034463 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A324A1EA9025800034463 /* emoji.json */,
+				DD1A324B1EA9025800034463 /* keyboard_btn_delete@2x.png */,
+				DD1A324C1EA9025800034463 /* keyboard_btn_delete@3x.png */,
+				DD1A324D1EA9025800034463 /* keyboard_preview_bg@2x.png */,
+				DD1A324E1EA9025800034463 /* keyboard_preview_bg@3x.png */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		DD1A325D1EA902A400034463 /* input bar */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A325E1EA902A400034463 /* res */,
+			);
+			path = "input bar";
+			sourceTree = "<group>";
+		};
+		DD1A325E1EA902A400034463 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				DD1A325F1EA902A400034463 /* btn_expression@2x.png */,
+				DD1A32601EA902A400034463 /* btn_expression@3x.png */,
+				DD1A32611EA902A400034463 /* btn_keyboard@2x.png */,
+				DD1A32621EA902A400034463 /* btn_keyboard@3x.png */,
+			);
+			path = res;
 			sourceTree = "<group>";
 		};
 		DD2322BB1E9E17DD00CED41B /* RequestManager */ = {
@@ -118,6 +254,8 @@
 		DD7642A71E9B850C00DBA596 /* ChatDesignApp */ = {
 			isa = PBXGroup;
 			children = (
+				DD1A32481EA9025800034463 /* emoji keyboard */,
+				DD1A316E1EA8ADD800034463 /* ZoomImage */,
 				DD2322BB1E9E17DD00CED41B /* RequestManager */,
 				DD2322BC1E9E17E900CED41B /* LoginController */,
 				DD9934FA1E9B852200AA9F37 /* ChatTimeLine */,
@@ -131,6 +269,7 @@
 				DD7642B61E9B850C00DBA596 /* LaunchScreen.storyboard */,
 				DD7642B91E9B850C00DBA596 /* Info.plist */,
 				DD277AFB1E9CD16A0061EA2D /* GoogleService-Info.plist */,
+				DD1A32171EA8D4A100034463 /* PrefixHeader.pch */,
 				DD7642A81E9B850C00DBA596 /* Supporting Files */,
 			);
 			path = ChatDesignApp;
@@ -147,6 +286,8 @@
 		DD9934FA1E9B852200AA9F37 /* ChatTimeLine */ = {
 			isa = PBXGroup;
 			children = (
+				DD23DB3B1EA7F664001C71B8 /* camera.png */,
+				DD23DB3C1EA7F664001C71B8 /* Forma 1.png */,
 				DD1C4C7C1E9B95CF008AF464 /* DemoMessageViewController.h */,
 				DD1C4C7D1E9B95CF008AF464 /* DemoMessageViewController.m */,
 				DD1C4C7F1E9B9E40008AF464 /* DemoModel.h */,
@@ -189,6 +330,7 @@
 				DD7642A31E9B850C00DBA596 /* Resources */,
 				F8C8BEAC9CC904EF6F0F9B1B /* [CP] Embed Pods Frameworks */,
 				8C94B0CA6570460A52D03361 /* [CP] Copy Pods Resources */,
+				DD1A32451EA8FE0700034463 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -240,8 +382,19 @@
 			files = (
 				DD7642B81E9B850C00DBA596 /* LaunchScreen.storyboard in Resources */,
 				DD277AFC1E9CD16A0061EA2D /* GoogleService-Info.plist in Resources */,
+				DD1A32591EA9025800034463 /* keyboard_preview_bg@3x.png in Resources */,
+				DD1A32571EA9025800034463 /* keyboard_btn_delete@3x.png in Resources */,
+				DD1A32581EA9025800034463 /* keyboard_preview_bg@2x.png in Resources */,
+				DD1A32551EA9025800034463 /* emoji.json in Resources */,
+				DD1A32661EA902A400034463 /* btn_expression@3x.png in Resources */,
 				DD7642B51E9B850C00DBA596 /* Assets.xcassets in Resources */,
+				DD1A32671EA902A400034463 /* btn_keyboard@2x.png in Resources */,
 				DDCD4E981EA61FEB00B83802 /* FriendsCell.xib in Resources */,
+				DD23DB3D1EA7F664001C71B8 /* camera.png in Resources */,
+				DD1A32651EA902A400034463 /* btn_expression@2x.png in Resources */,
+				DD1A32561EA9025800034463 /* keyboard_btn_delete@2x.png in Resources */,
+				DD1A32681EA902A400034463 /* btn_keyboard@3x.png in Resources */,
+				DD23DB3E1EA7F664001C71B8 /* Forma 1.png in Resources */,
 				DD7642B31E9B850C00DBA596 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,11 +458,20 @@
 				DDCD4E971EA61FEB00B83802 /* FriendsCell.m in Sources */,
 				DD7642AD1E9B850C00DBA596 /* AppDelegate.m in Sources */,
 				DD57AB4F1E9CF6000000B2BA /* AuthToken.m in Sources */,
+				DD1A318C1EA8BD0F00034463 /* UIImage+JTSImageEffects.m in Sources */,
 				DDCD4E931EA61F7700B83802 /* FriendsViewController.m in Sources */,
+				DD1A31891EA8BD0F00034463 /* JTSImageViewController.m in Sources */,
+				DD1A31881EA8BD0F00034463 /* JTSImageInfo.m in Sources */,
 				DD277AFF1E9CD1F90061EA2D /* LoginViewController.m in Sources */,
+				DD1A318A1EA8BD0F00034463 /* JTSSimpleImageDownloader.m in Sources */,
+				DD1A325B1EA9025800034463 /* STEmojiCollectionView.m in Sources */,
+				DD1A325A1EA9025800034463 /* STEmoji.m in Sources */,
+				DD1A31871EA8BD0F00034463 /* JTSAnimatedGIFUtility.m in Sources */,
+				DD1A325C1EA9025800034463 /* STEmojiKeyboard.m in Sources */,
 				DD7642AA1E9B850C00DBA596 /* main.m in Sources */,
 				DD1C4C811E9B9E40008AF464 /* DemoModel.m in Sources */,
 				DD1C4C7E1E9B95CF008AF464 /* DemoMessageViewController.m in Sources */,
+				DD1A318B1EA8BD0F00034463 /* UIApplication+JTSImageViewController.m in Sources */,
 				DD57AB501E9CF6000000B2BA /* RequestManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -432,6 +594,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34R34E8FHV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChatDesignApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VadimPlasiciuc.ChatDesignApp;
@@ -445,6 +611,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 34R34E8FHV;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ChatDesignApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.VadimPlasiciuc.ChatDesignApp;
