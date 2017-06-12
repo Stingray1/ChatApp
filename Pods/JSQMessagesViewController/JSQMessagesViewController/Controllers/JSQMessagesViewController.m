@@ -1171,7 +1171,7 @@ JSQMessagesKeyboardControllerDelegate>
                                                       object:nil];
     }
 }
-
+ 
 - (void)jsq_addActionToInteractivePopGestureRecognizer:(BOOL)addAction
 {
     if (self.currentInteractivePopGestureRecognizer != nil) {

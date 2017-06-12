@@ -16,7 +16,7 @@
     self.avatarImageView.clipsToBounds = YES;
     self.avatarImageView.layer.borderWidth = 3.0f;
     self.avatarImageView.layer.borderColor = [UIColor whiteColor].CGColor;
-    
+    _containerView.layer.cornerRadius = 7.0f;
    
 }
 

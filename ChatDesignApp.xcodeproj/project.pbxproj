@@ -45,6 +45,14 @@
 		DDCD4E931EA61F7700B83802 /* FriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4E921EA61F7700B83802 /* FriendsViewController.m */; };
 		DDCD4E971EA61FEB00B83802 /* FriendsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDCD4E951EA61FEB00B83802 /* FriendsCell.m */; };
 		DDCD4E981EA61FEB00B83802 /* FriendsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */; };
+		DDD10E2C1EAF3B650064EB64 /* ActiveFriendsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD10E2A1EAF3B650064EB64 /* ActiveFriendsTableViewCell.m */; };
+		DDD10E2D1EAF3B650064EB64 /* ActiveFriendsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD10E2B1EAF3B650064EB64 /* ActiveFriendsTableViewCell.xib */; };
+		DDD10E311EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD10E2F1EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.m */; };
+		DDD10E321EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDD10E301EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.xib */; };
+		DDD10E351EAF7E890064EB64 /* FriendsContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD10E341EAF7E890064EB64 /* FriendsContent.m */; };
+		DDECF6C41EDD80E800140E77 /* FriendsListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDECF6C21EDD80E800140E77 /* FriendsListTableViewCell.m */; };
+		DDECF6C51EDD80E800140E77 /* FriendsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDECF6C31EDD80E800140E77 /* FriendsListTableViewCell.xib */; };
+		DDECF6C81EDD812D00140E77 /* FriendsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDECF6C71EDD812D00140E77 /* FriendsListViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -121,6 +129,19 @@
 		DDCD4E941EA61FEB00B83802 /* FriendsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsCell.h; sourceTree = "<group>"; };
 		DDCD4E951EA61FEB00B83802 /* FriendsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsCell.m; sourceTree = "<group>"; };
 		DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCell.xib; sourceTree = "<group>"; };
+		DDD10E291EAF3B650064EB64 /* ActiveFriendsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveFriendsTableViewCell.h; sourceTree = "<group>"; };
+		DDD10E2A1EAF3B650064EB64 /* ActiveFriendsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveFriendsTableViewCell.m; sourceTree = "<group>"; };
+		DDD10E2B1EAF3B650064EB64 /* ActiveFriendsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActiveFriendsTableViewCell.xib; sourceTree = "<group>"; };
+		DDD10E2E1EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActiveFriendsCollectionViewCell.h; sourceTree = "<group>"; };
+		DDD10E2F1EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActiveFriendsCollectionViewCell.m; sourceTree = "<group>"; };
+		DDD10E301EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActiveFriendsCollectionViewCell.xib; sourceTree = "<group>"; };
+		DDD10E331EAF7E890064EB64 /* FriendsContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsContent.h; sourceTree = "<group>"; };
+		DDD10E341EAF7E890064EB64 /* FriendsContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsContent.m; sourceTree = "<group>"; };
+		DDECF6C11EDD80E800140E77 /* FriendsListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListTableViewCell.h; sourceTree = "<group>"; };
+		DDECF6C21EDD80E800140E77 /* FriendsListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListTableViewCell.m; sourceTree = "<group>"; };
+		DDECF6C31EDD80E800140E77 /* FriendsListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsListTableViewCell.xib; sourceTree = "<group>"; };
+		DDECF6C61EDD812D00140E77 /* FriendsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendsListViewController.h; sourceTree = "<group>"; };
+		DDECF6C71EDD812D00140E77 /* FriendsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendsListViewController.m; sourceTree = "<group>"; };
 		FF47516AF3AC40ED6B44CB9C /* Pods-ChatDesignApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatDesignApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ChatDesignApp/Pods-ChatDesignApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -254,6 +275,7 @@
 		DD7642A71E9B850C00DBA596 /* ChatDesignApp */ = {
 			isa = PBXGroup;
 			children = (
+				DDECF6B81EDD807700140E77 /* FriendsList */,
 				DD1A32481EA9025800034463 /* emoji keyboard */,
 				DD1A316E1EA8ADD800034463 /* ZoomImage */,
 				DD2322BB1E9E17DD00CED41B /* RequestManager */,
@@ -299,13 +321,57 @@
 		DDCD4E901EA61F5200B83802 /* FriendsTableView */ = {
 			isa = PBXGroup;
 			children = (
+				DDD10E201EAF39F50064EB64 /* RecentFriends */,
+				DDD10E1F1EAF39E60064EB64 /* ActiveFriends */,
 				DDCD4E911EA61F7700B83802 /* FriendsViewController.h */,
 				DDCD4E921EA61F7700B83802 /* FriendsViewController.m */,
+				DDD10E331EAF7E890064EB64 /* FriendsContent.h */,
+				DDD10E341EAF7E890064EB64 /* FriendsContent.m */,
+			);
+			name = FriendsTableView;
+			sourceTree = "<group>";
+		};
+		DDD10E1F1EAF39E60064EB64 /* ActiveFriends */ = {
+			isa = PBXGroup;
+			children = (
+				DDD10E291EAF3B650064EB64 /* ActiveFriendsTableViewCell.h */,
+				DDD10E2A1EAF3B650064EB64 /* ActiveFriendsTableViewCell.m */,
+				DDD10E2B1EAF3B650064EB64 /* ActiveFriendsTableViewCell.xib */,
+				DDD10E2E1EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.h */,
+				DDD10E2F1EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.m */,
+				DDD10E301EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.xib */,
+			);
+			name = ActiveFriends;
+			sourceTree = "<group>";
+		};
+		DDD10E201EAF39F50064EB64 /* RecentFriends */ = {
+			isa = PBXGroup;
+			children = (
 				DDCD4E941EA61FEB00B83802 /* FriendsCell.h */,
 				DDCD4E951EA61FEB00B83802 /* FriendsCell.m */,
 				DDCD4E961EA61FEB00B83802 /* FriendsCell.xib */,
 			);
-			name = FriendsTableView;
+			name = RecentFriends;
+			sourceTree = "<group>";
+		};
+		DDECF6B81EDD807700140E77 /* FriendsList */ = {
+			isa = PBXGroup;
+			children = (
+				DDECF6C91EDD813300140E77 /* FriendsListViewController */,
+				DDECF6C11EDD80E800140E77 /* FriendsListTableViewCell.h */,
+				DDECF6C21EDD80E800140E77 /* FriendsListTableViewCell.m */,
+				DDECF6C31EDD80E800140E77 /* FriendsListTableViewCell.xib */,
+			);
+			name = FriendsList;
+			sourceTree = "<group>";
+		};
+		DDECF6C91EDD813300140E77 /* FriendsListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DDECF6C61EDD812D00140E77 /* FriendsListViewController.h */,
+				DDECF6C71EDD812D00140E77 /* FriendsListViewController.m */,
+			);
+			name = FriendsListViewController;
 			sourceTree = "<group>";
 		};
 		F802490694EA69E6A9701CB0 /* Pods */ = {
@@ -380,6 +446,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD10E321EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.xib in Resources */,
 				DD7642B81E9B850C00DBA596 /* LaunchScreen.storyboard in Resources */,
 				DD277AFC1E9CD16A0061EA2D /* GoogleService-Info.plist in Resources */,
 				DD1A32591EA9025800034463 /* keyboard_preview_bg@3x.png in Resources */,
@@ -393,8 +460,10 @@
 				DD23DB3D1EA7F664001C71B8 /* camera.png in Resources */,
 				DD1A32651EA902A400034463 /* btn_expression@2x.png in Resources */,
 				DD1A32561EA9025800034463 /* keyboard_btn_delete@2x.png in Resources */,
+				DDD10E2D1EAF3B650064EB64 /* ActiveFriendsTableViewCell.xib in Resources */,
 				DD1A32681EA902A400034463 /* btn_keyboard@3x.png in Resources */,
 				DD23DB3E1EA7F664001C71B8 /* Forma 1.png in Resources */,
+				DDECF6C51EDD80E800140E77 /* FriendsListTableViewCell.xib in Resources */,
 				DD7642B31E9B850C00DBA596 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,14 +524,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD7642B01E9B850C00DBA596 /* ViewController.m in Sources */,
+				DDD10E351EAF7E890064EB64 /* FriendsContent.m in Sources */,
 				DDCD4E971EA61FEB00B83802 /* FriendsCell.m in Sources */,
 				DD7642AD1E9B850C00DBA596 /* AppDelegate.m in Sources */,
 				DD57AB4F1E9CF6000000B2BA /* AuthToken.m in Sources */,
 				DD1A318C1EA8BD0F00034463 /* UIImage+JTSImageEffects.m in Sources */,
+				DDD10E2C1EAF3B650064EB64 /* ActiveFriendsTableViewCell.m in Sources */,
 				DDCD4E931EA61F7700B83802 /* FriendsViewController.m in Sources */,
+				DDD10E311EAF3C400064EB64 /* ActiveFriendsCollectionViewCell.m in Sources */,
 				DD1A31891EA8BD0F00034463 /* JTSImageViewController.m in Sources */,
 				DD1A31881EA8BD0F00034463 /* JTSImageInfo.m in Sources */,
 				DD277AFF1E9CD1F90061EA2D /* LoginViewController.m in Sources */,
+				DDECF6C81EDD812D00140E77 /* FriendsListViewController.m in Sources */,
 				DD1A318A1EA8BD0F00034463 /* JTSSimpleImageDownloader.m in Sources */,
 				DD1A325B1EA9025800034463 /* STEmojiCollectionView.m in Sources */,
 				DD1A325A1EA9025800034463 /* STEmoji.m in Sources */,
@@ -471,6 +544,7 @@
 				DD7642AA1E9B850C00DBA596 /* main.m in Sources */,
 				DD1C4C811E9B9E40008AF464 /* DemoModel.m in Sources */,
 				DD1C4C7E1E9B95CF008AF464 /* DemoMessageViewController.m in Sources */,
+				DDECF6C41EDD80E800140E77 /* FriendsListTableViewCell.m in Sources */,
 				DD1A318B1EA8BD0F00034463 /* UIApplication+JTSImageViewController.m in Sources */,
 				DD57AB501E9CF6000000B2BA /* RequestManager.m in Sources */,
 			);

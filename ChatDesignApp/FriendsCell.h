@@ -10,5 +10,6 @@
 
 @interface FriendsCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (weak, nonatomic) IBOutlet UIView *containerView;
 
 @end

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <Foundation/Foundation.h>
 @interface RequestManager : NSObject
 
-
+@property (nonatomic,strong) NSMutableArray *messagesArray;
 +(RequestManager *)sharedManager;
 
 
@@ -20,7 +20,7 @@ username:(NSString *)username
 
 -(void)logout;
 
--(void)registerUserWithFirstName:(NSString *)firsName LastName:(NSString *)lastName userName:(NSString *)userName sex:(NSString *)gender password:(NSString *)password email:(NSString *)email andBirthday:(NSString *)birthday onSucces:(void(^)(NSString * response))success ofFail:(void (^)(NSError *error,NSInteger statusCode)) failure;
+-(void)registerUserWithFirstName:(NSString *)firsName LastName:(NSString *)lastName userName:(NSString *)userName sex:(NSString *)gender password:(NSString *)password email:(NSString *)email andBirthday:(UIDatePicker *)birthday onSucces:(void(^)(NSString * response))success ofFail:(void (^)(NSError *error,NSInteger statusCode)) failure;
 
 
 

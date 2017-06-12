@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ActiveFriendsCollectionViewCellID" id="gTV-IL-0wX" customClass="ActiveFriendsCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j7T-kV-bcg">
+                        <rect key="frame" x="4" y="4" width="52" height="52"/>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="198-FB-vdq">
+                        <rect key="frame" x="38" y="49" width="8" height="8"/>
+                        <color key="backgroundColor" red="0.4498712346" green="1" blue="0.18654572289999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="198-FB-vdq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="49" id="FEd-T5-j0v"/>
+                <constraint firstItem="j7T-kV-bcg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="Iil-Bt-bdQ"/>
+                <constraint firstAttribute="bottom" secondItem="198-FB-vdq" secondAttribute="bottom" constant="3" id="IoJ-bs-iEf"/>
+                <constraint firstItem="198-FB-vdq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="38" id="Jgf-Qn-ARI"/>
+                <constraint firstItem="j7T-kV-bcg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="RAt-QA-Qgt"/>
+                <constraint firstAttribute="trailing" secondItem="198-FB-vdq" secondAttribute="trailing" constant="14" id="U2E-RR-O8u"/>
+                <constraint firstAttribute="trailing" secondItem="j7T-kV-bcg" secondAttribute="trailing" constant="4" id="lB1-uz-arx"/>
+                <constraint firstAttribute="bottom" secondItem="j7T-kV-bcg" secondAttribute="bottom" constant="4" id="yHi-Ki-kpV"/>
+            </constraints>
+            <size key="customSize" width="85" height="60"/>
+            <connections>
+                <outlet property="userProfileImage" destination="j7T-kV-bcg" id="fgx-hI-kSc"/>
+                <outlet property="userStatus" destination="198-FB-vdq" id="jKk-0l-qgH"/>
+            </connections>
+            <point key="canvasLocation" x="-69" y="40"/>
+        </collectionViewCell>
+    </objects>
+</document>

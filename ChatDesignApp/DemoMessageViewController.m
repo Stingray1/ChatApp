@@ -39,7 +39,7 @@
     
    // self.navigationController.navigationBar.barTintColor = [UIColor redColor];
     
-    CGRect frame = CGRectMake(0, 0, 400, 44);
+    CGRect frame = CGRectMake(0, 0, 50, 44);
     UILabel *label = [[UILabel alloc] initWithFrame:frame];
     label.backgroundColor = [UIColor clearColor];
     label.font = [UIFont boldSystemFontOfSize:13.0];
@@ -57,8 +57,9 @@
     
     kJSQDemoAvatarDisplayNameCook = self.name;
     kJSQDemoAvatarIdCook = self.userID;
+    NSLog(@"user id este %@",kJSQDemoAvatarIdCook);
     
-    NSLog(@"Name is %@",self.demoData.name);
+    NSLog(@"Name is %@",self.name);
     
     [self.inputToolbar.contentView.textView setAutocorrectionType:UITextAutocorrectionTypeNo];
     
@@ -70,7 +71,6 @@
                                                                               style:UIBarButtonItemStylePlain
                                                                              target:self
                                                                              action:@selector(receiveMessagePressed:)];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(getBackToFriendsTableView)];
     
     
     
@@ -89,43 +89,24 @@
     
 }
 
--(void)getBackToFriendsTableView
-{
-//    NSLog(@"pressed");
-//    FriendsViewController *vc =[self.storyboard instantiateViewControllerWithIdentifier:@"FriendsViewController"];
-//    [self.navigationController pushViewController:vc animated:YES];
 
-        // Navigation button was pressed. Do some stuff
-        [self.navigationController popViewControllerAnimated:YES];
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    dispatch_suspend(_timer);
-    NSLog(@"Timer stops");
-
-    
-    [super viewWillDisappear:YES];
-    
-    
-    
-}
-
-- (void)startTimer
-{
-    if (!self.timer) {
-        self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
-    }
-    if (self.timer) {
-        dispatch_source_set_timer(self.timer, dispatch_walltime(NULL, 0), 3ull*NSEC_PER_SEC, 10ull*NSEC_PER_SEC);
-        dispatch_source_set_event_handler(_timer, ^(void) {
-            [self tick];
-        });
-        dispatch_resume(_timer);
-    }
-}
-- (void)tick
-{
-    [self receiveMessagePressed:nil];
-}
+//- (void)startTimer
+//{
+//    if (!self.timer) {
+//        self.timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, dispatch_get_main_queue());
+//    }
+//    if (self.timer) {
+//        dispatch_source_set_timer(self.timer, dispatch_walltime(NULL, 0), 3ull*NSEC_PER_SEC, 10ull*NSEC_PER_SEC);
+//        dispatch_source_set_event_handler(_timer, ^(void) {
+//            [self tick];
+//        });
+//        dispatch_resume(_timer);
+//    }
+//}
+//- (void)tick
+//{
+//    [self receiveMessagePressed:nil];
+//}
 
 - (void)didPressSendButton:(UIButton *)button
            withMessageText:(NSString *)text
@@ -145,7 +126,7 @@
     
     // [JSQSystemSoundPlayer jsq_playMessageSentSound];
     
-    [[RequestManager sharedManager]sendMessage:text andId:@"23"];
+    [[RequestManager sharedManager]sendMessage:text andId:@"26"];
     
     JSQMessage *message = [[JSQMessage alloc] initWithSenderId:senderId
                                              senderDisplayName:senderDisplayName

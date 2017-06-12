@@ -16,12 +16,12 @@
 
 @end
 
+
 @implementation RequestManager
 {
-    NSMutableArray* messagesArray;
     
-
 }
+@synthesize messagesArray;
 
 +(RequestManager *)sharedManager
 {
@@ -38,7 +38,7 @@
 {
     self = [super init];
     if (self) {
-        NSURL *url = [NSURL URLWithString:@"http://35.187.72.36/"];
+        NSURL *url = [NSURL URLWithString:@"http://35.187.121.251/"];
         self.requestManager = [[AFHTTPSessionManager alloc] initWithBaseURL:url];
         
         
@@ -118,7 +118,7 @@
     
 
 }
--(void)registerUserWithFirstName:(NSString *)firsName LastName:(NSString *)lastName userName:(NSString *)userName sex:(NSString *)gender password:(NSString *)password email:(NSString *)email andBirthday:(NSString *)birthday onSucces:(void(^)(NSString * response))success ofFail:(void (^)(NSError *error,NSInteger statusCode)) failure
+-(void)registerUserWithFirstName:(NSString *)firsName LastName:(NSString *)lastName userName:(NSString *)userName sex:(NSString *)gender password:(NSString *)password email:(NSString *)email andBirthday:(UIDatePicker *)birthday onSucces:(void(^)(NSString * response))success ofFail:(void (^)(NSError *error,NSInteger statusCode)) failure
 {
     
     [self.requestManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
@@ -187,9 +187,6 @@
 
 -(void)getMessagefromID:(NSString *)userId onSucces:(void(^)(NSDictionary *response)) success onFail:(void(^)(NSError * error,NSInteger statusCode)) failure
 {
-    
-  
-    
 
     [self.requestManager.requestSerializer setValue:[AuthToken sharedToken].token forHTTPHeaderField:@"Authorization"];
 

@@ -17,7 +17,7 @@ static NSString * kJSQDemoAvatarDisplayNameCook = @"Random";
 //static NSString * const kJSQDemoAvatarDisplayNameWoz = @"Steve Wozniak";
 
 static NSString *  kJSQDemoAvatarIdSquires = @"24";
-static NSString *  kJSQDemoAvatarIdCook = @"23";
+static NSString *  kJSQDemoAvatarIdCook = @"26";
 //static NSString * const kJSQDemoAvatarIdJobs = @"19";
 //static NSString * const kJSQDemoAvatarIdWoz = @"4";
 
